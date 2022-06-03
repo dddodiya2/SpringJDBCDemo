@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.learning.jdbc.dto.Employee;
 
-@Component
+@Repository
 public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Autowired
@@ -45,6 +45,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		Employee e = jdbcTemplate.queryForObject(
 				"select emp_id, name, designation, salary, dept_id from employee where emp_id = ?", rowMapper, params);
 
+		/*
+		 * empId, name setEmpId, setName
+		 */
+
 		return e;
 	}
 
@@ -76,6 +80,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		String sql = "create table employee ( emp_Id int,name varchar(20),designation varchar(20),salary double,dept_Id int )";
 		jdbcTemplate.execute(sql);
 		System.out.println("Employee table created");
+	}
+
+	@Override
+	public List<String> getAllEmployeeNames() {
+		String sql = "select name from employee";
+		return jdbcTemplate.queryForList(sql, String.class);
 	}
 
 }

@@ -21,5 +21,7 @@ public interface EmployeeDao {
 	public int deleteEmployee(Employee e);
 	
 	public int updateEmployeeSalary(int empId, double newSalary);
+	
+	public List<String> getAllEmployeeNames();
 
 }

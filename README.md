@@ -93,7 +93,7 @@ if we have single parameter use static sql statement and if more than 1 paramete
 In case of multiple parameter (Dynamic sql) we need to pass Object[] as parameter.
 See below example to understand :-
 
-Object[] params = {new Integer(1009),"Divyesh"-;
+Object[] params = {new Integer(1009),"Divyesh"}-;
 int numberOfRowsUpdated =it.update(“insert into spring values(?,?)”,params);
 
 or
@@ -146,16 +146,40 @@ TransferObject: This represents a Transfer Object used as a data carrier. The Da
 
 
 @Repository Annotation
-DAO or Repository classes usually represent the database access layer in an application, and should be annotated with @Repository:
+DAO or Repository classes usually represent the database access layer in an application, 
+and should be annotated with @Repository:
 
 @Repository Annotation is a specialization of @Component annotation which is used to indicate 
 that the class provides the mechanism for storage, retrieval, update, delete and search operation
 on objects. Though it is a specialization of @Component annotation, so Spring Repository classes
-are autodetected by spring framework through classpath scanning. 
+are auto detected by spring framework through classpath scanning. 
 This annotation is a general-purpose stereotype annotation which very close to the DAO pattern 
-where DAO classes are responsible for providing CRUD operations on database tables. 
+where DAO classes are responsible for providing CRUD(Create, Read, Update, Delete) 
+operations on database tables. 
+
+----------------------------------------------------------------------------------------------
+
+@Service :-
+Annotation is a specialization of @Component annotation which is used to indicate 
+that the class provides the business related operations or actions.
 
 
 
 
+-----------------------------------------------------------------------------------------------
+ASSIGNMENT
+-----------------------------------------------------------------------------------------------
+Create a web mvc application. Using Spring MVC.
+page1 - welcome Page of the institute.
+page1--> contains a link to Student Form
+StudentForm Page :- RollNo, Name, Age, Pincode, MobileNo , Courses(JAVA,SPRING,HIBERNATE,MVC).
+Submit button will show a confirmation page and will also save this student into the database.
+Student table with your choice of columns needs to be created using Spring JDBC.
+Page1 will also have links to view all students who have submitted the forms.
+Page1 will also have a link to get student details using student rollNo.
 
+controller
+config
+dao
+dto
+application.properties
